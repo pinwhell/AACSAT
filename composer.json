@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "AACS\\": "src/",
+      "AACS\\Crypto\\":  "src/Crypto"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5"
+  }
+}
