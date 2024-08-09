@@ -1,5 +1,9 @@
 {
-  "autoload": {
+    "name": "aacs/at",
+    "description": "AuthToken Creation/Validation for AACS System",
+    "type": "library",
+    "require": {},
+    "autoload": {
     "psr-4": {
       "AACS\\": "src/",
       "AACS\\Crypto\\":  "src/Crypto"
