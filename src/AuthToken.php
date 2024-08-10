@@ -22,12 +22,12 @@ class AuthToken
 
         $tokenRaw['s'] = $signer->Sign(KVCanonicalMerger::Merge($tokenRaw, array('u', 'o', 'c', 'e')));
 
-        return json_encode($tokenRaw);
+        return base64_encode(json_encode($tokenRaw));
     }
 
     public static function Verify(IVerifier $verifier, $token) : bool
     {
-        $tokenRaw = json_decode($token, true);
+        $tokenRaw = json_decode(base64_decode($token), true);
         return $verifier->Verify(KVCanonicalMerger::Merge($tokenRaw, array('u', 'o', 'c', 'e')), $tokenRaw['s']);
     }
 }

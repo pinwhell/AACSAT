@@ -61,9 +61,9 @@ EOD;
         $this->assertTrue(AuthTokenRSA::Verify(self::$testpubKey, $token));
 
         // Tamper with the token
-        $decodedToken = json_decode($token, true);
+        $decodedToken = json_decode(base64_decode($token), true);
         $decodedToken['o'] .= '=)';
-        $tamperedToken = json_encode($decodedToken);
+        $tamperedToken = base64_encode(json_encode($decodedToken));
 
         // Assert that the tampered token is not valid
         $this->assertFalse(AuthTokenRSA::Verify(self::$testpubKey, $tamperedToken));
